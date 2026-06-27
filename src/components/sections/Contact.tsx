@@ -135,7 +135,8 @@ export function Contact() {
   return (
     <section id="contact" className="py-24 lg:py-32 bg-[var(--bg-surface)] relative overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_100%,rgba(6,182,212,0.04),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_100%,rgba(6,182,212,0.05),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_40%_40%_at_50%_0%,rgba(37,99,235,0.04),transparent)]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div
@@ -143,14 +144,30 @@ export function Contact() {
           initial={prefersReducedMotion ? "visible" : "hidden"}
           whileInView="visible"
           viewport={viewport}
-          className="text-center mb-16"
+          className="text-center mb-6"
         >
+          {/* Availability badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[var(--green)]/25 bg-[var(--green)]/8 mb-6">
+            <motion.div
+              className="w-2 h-2 rounded-full bg-[var(--green)]"
+              animate={prefersReducedMotion ? {} : { scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+            <span className="text-xs font-mono text-[var(--green)] font-semibold">
+              Taking on 2 new clients this month
+            </span>
+          </div>
+
           <p className="text-xs font-mono text-[var(--accent-cyan)] uppercase tracking-widest mb-4">
-            Let's talk
+            Let&apos;s talk
           </p>
-          <h2 className="text-4xl lg:text-5xl font-serif italic text-[var(--text-primary)] max-w-2xl mx-auto leading-tight">
-            Let&apos;s talk about what&apos;s slowing your business down.
+          <h2 className="text-4xl lg:text-5xl font-serif italic text-[var(--text-primary)] max-w-2xl mx-auto leading-tight mb-4">
+            Stop leaving revenue on the table.
           </h2>
+          <p className="text-lg text-[var(--text-secondary)] max-w-xl mx-auto">
+            30 minutes. We look at your business, find where you&apos;re losing
+            time or money, and tell you exactly what we&apos;d build. No pitch.
+          </p>
         </motion.div>
 
         <motion.div

@@ -10,6 +10,7 @@ interface CountUpProps {
   prefix?: string;
   decimals?: number;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export function CountUp({
@@ -19,6 +20,7 @@ export function CountUp({
   prefix = "",
   decimals = 0,
   className,
+  style,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -44,7 +46,7 @@ export function CountUp({
   }, [isInView, end, duration, decimals, prefersReducedMotion]);
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={className} style={style}>
       {prefix}
       {value.toFixed(decimals)}
       {suffix}
